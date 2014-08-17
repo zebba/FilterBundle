@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    
+    <parameters>
+        <parameter key="zebba.filter.filter_handler_factory.class">Zebba\Bundle\FilterBundle\Factory\FilterHandlerFactory</parameter>
+        <parameter key="zebba.filter.filter_manager_factory.class">Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory</parameter>
+        <parameter key="zebba.filter.service.logger">zebba.filter.null_logger</parameter>
+        <parameter key="zebba.filter.service.form_factory">form.factory</parameter>
+        <parameter key="zebba.filter.service.object_manager">doctrine.orm.entity_manager</parameter>
+        <parameter key="zebba.filter.service.annotation_reader">annotation_reader</parameter>
+        <parameter key="zebba.filter.service.session">session</parameter>
+    </parameters>
+    
+    <services>
+        <service id="zebba.filter.null_logger" public="false"
+            class="Psr\Log\NullLogger" />
+    
+        <service id="zebba.filter.filter_handler_factory"
+            class="%zebba.filter.filter_handler_factory.class%">
+            <argument>%zebba.filter.service.form_factory%</argument>
+            <argument>%zebba.filter.service.logger%</argument>
+        </service>
+        
+        <service id="zebba.filter.filter_manager_factory"
+            class="%zebba.filter.filter_manager_factory.class%">
+            <argument>%zebba.filter.service.object_manager%</argument>
+            <argument>%zebba.filter.service.annotation_reader</argument>
+            <argument>%zebba.filter.service.session%</argument>
+            <argument>%zebba.filter.service.logger%</argument>
+        </service>
+    </services>
+</container>
