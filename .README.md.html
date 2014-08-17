@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/var/web-development/zebba/src/Zebba/Bundle/FilterBundle/.README.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 Helvetica,arial,freesans,clean,sans-serif;
+}
+
+.markdown-body {
+    border: 1px solid #CACACA;
+    padding: 30px;
+    font-size: 15px;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a.absent {
+    color: #C00;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    padding-right: 6px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body a.anchor:focus {
+    outline: medium none;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    line-height: 1.7;
+    margin: 1em 0 15px;
+    padding: 0;
+    position: relative;
+}
+
+.markdown-body h1 .octicon-link, .markdown-body h2 .octicon-link, .markdown-body h3 .octicon-link, .markdown-body h4 .octicon-link, .markdown-body h5 .octicon-link, .markdown-body h6 .octicon-link {
+    color: #000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .octicon-link, .markdown-body h2:hover a.anchor .octicon-link, .markdown-body h3:hover a.anchor .octicon-link, .markdown-body h4:hover a.anchor .octicon-link, .markdown-body h5:hover a.anchor .octicon-link, .markdown-body h6:hover a.anchor .octicon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    border-bottom: 1px solid #DDD;
+    font-size: 2.5em;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #EEE;
+    font-size: 2em;
+}
+.markdown-body h3 {
+    font-size: 1.5em;
+}
+.markdown-body h4 {
+    font-size: 1.2em;
+}
+.markdown-body h5 {
+    font-size: 1em;
+}
+.markdown-body h6 {
+    color: #777;
+    font-size: 1em;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 0;
+}
+.markdown-body dl dd {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDD;
+    color: #777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #DDD;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFF;
+    border-top: 1px solid #CCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 0px;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+    background-color: #F8F8F8;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+.markdown-body code {
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    word-wrap: normal;
+}
+
+pre, code, tt {
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    font-size: 12px;
+}
+
+.highlight {
+    background: #FFF;
+}
+.highlight .k,
+.highlight .o,
+.highlight .cp,
+.highlight .cs,
+.highlight .gs,
+.highlight .gu,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .nc,
+.highlight .ne,
+.highlight .nf,
+.highlight .ow {
+    font-weight: bold;
+}
+.highlight .gd,
+.highlight .gd .x,
+.highlight .gi,
+.highlight .gi .x,
+.type-csharp .highlight .nf,
+.type-csharp .highlight .nn {
+    color: #000;
+}
+.highlight .c,
+.highlight .cm,
+.highlight .c1 {
+    color: #998;
+    font-style: italic;
+}
+.highlight .err {
+    background-color: #E3D2D2;
+    color: #A61717;
+}
+.highlight .cp,
+.highlight .cs {
+    color: #999;
+}
+.highlight .cs,
+.highlight .ge {
+    font-style: italic;
+}
+.highlight .gd {
+    background-color: #FDD;
+}
+.highlight .gd .x {
+    background-color: #FAA;
+}
+.highlight .gr,
+.highlight .gt {
+    color: #A00;
+}
+.highlight .gh {
+    color: #999;
+}
+.highlight .gi {
+    background-color: #DFD;
+}
+.highlight .gi .x {
+    background-color: #AFA;
+}
+.highlight .go {
+    color: #888;
+}
+.highlight .gp,
+.highlight .nn {
+    color: #555;
+}
+.highlight .gu,
+.highlight .ni {
+    color: #800080;
+}
+.highlight .kt {
+    color: #458;
+}
+.highlight .m {
+    color: #099;
+}
+.highlight .s {
+    color: #D14;
+}
+.highlight .n {
+    color: #333;
+}
+.highlight .na,
+.highlight .no,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+    color: #008080;
+}
+.highlight .nb {
+    color: #0086B3;
+}
+.highlight .nc {
+    color: #458;
+}
+.highlight .ne,
+.highlight .nf {
+    color: #900;
+}
+.highlight .nt {
+    color: #000080;
+}
+.highlight .w {
+    color: #BBB;
+}
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo {
+    color: #099;
+}
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .s1 {
+    color: #D14;
+}
+.highlight .sr {
+    color: #009926;
+}
+.highlight .ss {
+    color: #990073;
+}
+.highlight .bp {
+    color: #999;
+}
+.highlight .il {
+    color: #099;
+}
+.highlight .gc {
+    background-color: #EAF2F5;
+    color: #999;
+}
+.type-csharp .highlight .k,
+.type-csharp .highlight .kt {
+    color: #00F;
+}
+.type-csharp .highlight .nf {
+    font-weight: normal;
+}
+.type-csharp .highlight .nc {
+    color: #2B91AF;
+}
+.type-csharp .highlight .s,
+.type-csharp .highlight .sc {
+    color: #A31515;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h1> <a name="user-content-getting-started-with-zebbafilterbundle" class="anchor" href="..md.html#getting-started-with-zebbafilterbundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started With ZebbaFilterBundle</h1> 
+<h2> <a name="user-content-installation" class="anchor" href="..md.html#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2> 
+<h3> <a name="user-content-step-1-download-zebbafilterbundle-using-composer" class="anchor" href="..md.html#step-1-download-zebbafilterbundle-using-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Download ZebbaFilterBundle using composer</h3> 
+<p>Modify your composer.json to add the ZebbaFilterBundle:</p> 
+<div class="highlight highlight-json">
+ <pre><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;zebba/filterhandler-bundle&quot;</span> <span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;repositories&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;vcs&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;url&quot;</span> <span class="p">:</span> <span class="s2">&quot;https://github.com/zebba/FilterBundle.git&quot;</span>
+        <span class="p">}</span>        
+    <span class="p">]</span>
+<span class="p">}</span>    
+</pre>
+</div> 
+<p>Run the following command to have composer download the bundle:</p> 
+<div class="highlight highlight-bash">
+ <pre><span class="nv">$ </span>php composer.phar update
+</pre>
+</div> 
+<h3> <a name="user-content-step-2-enable-the-bundle" class="anchor" href="..md.html#step-2-enable-the-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Enable the bundle</h3> 
+<p>Enable the bundle in the kernel:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// app/AppKernel.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$bundles</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+        <span class="k">new</span> <span class="nx">Zebba\Bundle\FilterBundle\ZebbaFilterBundle</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<h2> <a name="user-content-creating-a-filter" class="anchor" href="..md.html#creating-a-filter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a filter</h2> 
+<p>A filter in the context of this bundle is a combination of different things:</p> 
+<ol> 
+ <li>A model for storing the data</li> 
+ <li>A FormType defining the fields of the filter</li> 
+ <li>A FilterHandler dealing with the generation of the form and binding the request</li> 
+ <li>A FilterManager that connects the FilterHandler, the Session and your database together</li> 
+</ol>
+<h3> <a name="user-content-step-1-create-your-filter-model" class="anchor" href="..md.html#step-1-create-your-filter-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Create your filter model</h3> 
+<p>Imagine you have written a BlogBundle which has an entity Post:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// src/Acme/BlogBundle/Entity/Post</span>
+
+<span class="k">namespace</span> <span class="nx">Acme\BlogBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\ArrayCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\Collection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Post</span>
+<span class="p">{</span>
+    <span class="sd">/** @var UserInterface */</span>
+    <span class="k">private</span> <span class="nv">$author</span><span class="p">;</span>
+    <span class="sd">/** @var Collection */</span>
+    <span class="k">private</span> <span class="nv">$categories</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">categories</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<p>In order to filter the Posts by these two properties let's start by creating a basic class that implements the FilterInterface:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// src/Acme/BlogBundle/Model/Filter/PostFilter</span>
+
+<span class="k">namespace</span> <span class="nx">Acme\BlogBundle\Model\Filter</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Acme\BlogBundle\Entity\Category</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\ArrayCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\Collection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Zebba\Component\Form\Filter\FilterInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostFilter</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+<span class="p">{</span>
+    <span class="sd">/** @var UserInterface */</span>
+    <span class="k">private</span> <span class="nv">$author</span><span class="p">;</span>
+    <span class="sd">/** @var Collection */</span>
+    <span class="k">private</span> <span class="nv">$categories</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">categories</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFilter</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="cm">/* @var $categories Collection */</span>
+        <span class="nv">$categories</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">categories</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* @var $e Category */</span>
+            <span class="k">return</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getCategory</span><span class="p">();</span> <span class="c1">// pk in  Category is 'category'</span>
+        <span class="p">});</span>
+
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">))</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">()</span> <span class="o">:</span> <span class="k">null</span><span class="p">,</span> <span class="c1">// pk is 'username'</span>
+            <span class="s1">'categories'</span> <span class="o">=&gt;</span> <span class="nv">$categories</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">(),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isEmpty</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">categories</span><span class="o">-&gt;</span><span class="na">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAuthor</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setAuthor</span><span class="p">(</span><span class="nx">UserInterface</span> <span class="nv">$author</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCategories</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCategories</span><span class="p">(</span><span class="nx">Collection</span> <span class="nv">$categories</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addCategory</span><span class="p">(</span><span class="nx">Categoriy</span> <span class="nv">$category</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">removeCategory</span><span class="p">(</span><span class="nx">Category</span> <span class="nv">$category</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<p>The function getFilter() will return an array with all the primary key values you stored in the filter, isEmpty() checks if there is actually any data set in the filter.</p> 
+<p>In order to make some magic happen, we also need to help the ZebbaFilterBundle and tell it what kind of entities the Collection holds by adding the Filter annotation:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// src/Acme/BlogBundle/Model/Filter/PostFilter</span>
+
+<span class="k">namespace</span> <span class="nx">Acme\BlogBundle\Model\Filter</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Zebba\Bundle\FilterBundle\Annotation\Filter</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostFilter</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var Collection</span>
+<span class="sd">     *</span>
+<span class="sd">     * @Filter(targetEntity=&quot;Acme\BlogBundle\Entity\Category&quot;) </span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$categories</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<h3> <a name="user-content-step-2-create-the-formtype" class="anchor" href="..md.html#step-2-create-the-formtype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Create the FormType</h3> 
+<p>Next on the list is the FormType:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span> 
+
+<span class="k">namespace</span> <span class="nx">Acme\BlogBundle\Form</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">,</span>
+    <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">,</span>
+    <span class="nx">Symfony\Component\OptionsResolver\OptionsResolverInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostFilterType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param FormBuilderInterface $builder</span>
+<span class="sd">     * @param array $options</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="s1">'entity'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'class'</span> <span class="o">=&gt;</span> <span class="s1">'Acme\BlogBundle\Entity\Author'</span><span class="p">,</span>
+                <span class="s1">'multiple'</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+            <span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'categories'</span><span class="p">,</span> <span class="s1">'entity'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'class'</span> <span class="o">=&gt;</span> <span class="s1">'Acme\BlogBundle\Entity\Category'</span><span class="p">,</span>
+                <span class="s1">'multiple'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param OptionsResolverInterface $resolver</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setDefaultOptions</span><span class="p">(</span><span class="nx">OptionsResolverInterface</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">'data_class'</span> <span class="o">=&gt;</span> <span class="s1">'Acme\BlogBundle\Model\Filter\PostFilter'</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return string</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">'acme_blog_post'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<p>Your FormType needs to be defined as a service:</p> 
+<div class="highlight highlight-xml">
+ <pre><span class="c">&lt;!-- src/Acme/BlogBundle/Resources/config/services.xml --&gt;</span>
+
+<span class="nt">&lt;services&gt;</span>
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme_blog.post_filter.form_type&quot;</span> <span class="na">class=</span><span class="s">&quot;Acme\BlogBundle\Form\PostFilterType&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/services&gt;</span>
+</pre>
+</div> 
+<h3> <a name="user-content-step-3-setup-the-filterhandler" class="anchor" href="..md.html#step-3-setup-the-filterhandler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Setup the FilterHandler</h3> 
+<p>Next on the list is creating the FilterHandler:</p> 
+<div class="highlight highlight-xml">
+ <pre><span class="c">&lt;!-- src/Acme/BlogBundle/Resources/config/services.xml --&gt;</span>
+
+<span class="nt">&lt;services&gt;</span>
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme_blog.filter.handler.post&quot;</span>
+        <span class="na">class=</span><span class="s">&quot;Zebba\Component\Form\Handler\FilterHandler&quot;</span>
+        <span class="na">factory-service=</span><span class="s">&quot;zebba_filter.handler_factory&quot;</span>
+        <span class="na">factory-method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;argument&gt;</span>acme_blog.filter.post<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;siepmann.form.type.inquiry&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+<span class="nt">&lt;/services&gt;</span>
+</pre>
+</div> 
+<h3> <a name="user-content-step-4-setup-the-filtermanager" class="anchor" href="..md.html#step-4-setup-the-filtermanager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Setup the FilterManager</h3> 
+<p>We are almost there! Add the definiton for the FilterManager:</p> 
+<div class="highlight highlight-xml">
+ <pre><span class="c">&lt;!-- src/Acme/BlogBundle/Resources/config/services.xml --&gt;</span>
+
+<span class="nt">&lt;services&gt;</span>
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme_blog.filter.manager.post&quot;</span>
+        <span class="na">class=</span><span class="s">&quot;Zebba\Bundle\FilterBundle\Model\FilterManager&quot;</span>
+        <span class="na">factory-service=</span><span class="s">&quot;zebba_filter.zebba_filter.manager_factory&quot;</span>
+        <span class="na">factory-method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;argument&gt;</span>acme_blog.filter.post<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;acme_blog.filter.handler.post&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+<span class="nt">&lt;/services&gt;</span>
+</pre>
+</div> 
+<h2> <a name="user-content-usage" class="anchor" href="..md.html#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2> 
+<p>To make good use of your Filter you need to create a dedicated function in your Repository.</p> 
+<p>In your Controller you can then use:</p> 
+<div class="highlight highlight-php">
+ <pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// src/Acme/BlogBundle/Controller/PostController</span>
+
+<span class="k">use</span> <span class="nx">Acme\BlogBundle\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Acme\BlogBundle\Model\Filter\PostFilter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Zebba\Bundle\FilterBundle\Model\FilterManager</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$manager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'acme_blog.filter.manager.post'</span><span class="p">);</span>
+
+    <span class="cm">/* @var $filter PostFilter */</span>
+    <span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PostFilter</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$manager</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$filter</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$request</span><span class="p">))</span> <span class="p">{</span>
+        <span class="cm">/* @var $posts Post[] */</span>
+        <span class="nv">$posts</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="s1">'AcmeBlogBundle:Post'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getByFilter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="cm">/* @var $posts Post[] */</span>
+        <span class="nv">$posts</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="s1">'AcmeBlogBundle:Post'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'AcmeBlogBundle:Post:index.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'posts'</span> <span class="o">=&gt;</span><span class="nv">$posts</span><span class="p">,</span> 
+        <span class="s1">'filter'</span> <span class="o">=&gt;</span> <span class="nv">$manager</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre>
+</div> 
+<h2> <a name="user-content-default-configuration" class="anchor" href="..md.html#default-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Configuration</h2> 
+<p>If you want to modify the configuration you can easily swap out parameters.</p> 
+<div class="highlight highlight-yml">
+ <pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">parameters</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">zebba_filter</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">handler_factory.class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Zebba\Bundle\FilterBundle\Factory\FilterHandlerFactory</span>
+        <span class="l-Scalar-Plain">manager_factory.class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory</span>
+
+        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">logger</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">zebba_filter.null_logger</span>
+            <span class="l-Scalar-Plain">form_factory</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">form.factory</span>
+            <span class="l-Scalar-Plain">object_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">doctrine.orm.entity_manager</span>
+            <span class="l-Scalar-Plain">annotation_reader</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">annotation_reader</span>
+            <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">session</span>
+</pre>
+</div>
+</body>
+</html>

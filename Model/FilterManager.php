@@ -93,7 +93,7 @@ class FilterManager
 	 */
 	private function toSession(FilterInterface $filter)
 	{
-		$this->session->set($this->filter_id, $filter->getFilter());
+		if (! $filter->isEmpty()) { $this->session->set($this->filter_id, $filter->getFilter()); }
 	}
 
 	/**
