@@ -292,12 +292,14 @@ public function indexAction(Request $request)
     /* @var $filter PostFilter */
     $filter = new PostFilter;
         
+    $em = $this->getDoctrine()->getManager();    
+        
     if ($manager->process($filter, array(), $request)) {
         /* @var $posts Post[] */
-        $posts = $this->getDoctrine()->getRepository('AcmeBlogBundle:Post')->getByFilter($filter);
+        $posts = $em->getRepository('AcmeBlogBundle:Post')->getByFilter($filter);
     } else {
         /* @var $posts Post[] */
-        $posts = $this->getDoctrine()->getRepository('AcmeBlogBundle:Post')->findAll();
+        $posts = $em->getRepository('AcmeBlogBundle:Post')->findAll();
     }
         
     return $this->render('AcmeBlogBundle:Post:index.html.twig', array(
