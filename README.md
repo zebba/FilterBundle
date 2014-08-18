@@ -10,7 +10,7 @@ Modify your composer.json to add the ZebbaFilterBundle:
 ```json
 {
     "require" : {
-        "zebba/filterhandler-bundle" : "dev-master"
+        "zebba/filterhandler-bundle" : "~1.0"
     },
     "repositories" : [
         {
