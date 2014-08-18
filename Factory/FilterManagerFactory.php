@@ -2,7 +2,7 @@
 
 namespace Zebba\Bundle\FilterBundle\Factory;
 
-use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -13,7 +13,7 @@ class FilterManagerFactory
 {
 	/** @var ObjectManager */
 	private $om;
-	/** @var AnnotationReader */
+	/** @var Reader */
 	private $reader;
 	/** @var SessionInterface */
 	private $session;
@@ -24,12 +24,12 @@ class FilterManagerFactory
 	 * Constructor
 	 *
 	 * @param ObjectManager $om
-	 * @param AnnotationReader $reader
+	 * @param Reader $reader
 	 * @param SessionInterface $session
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct(ObjectManager $om,
-		AnnotationReader $reader,
+		Reader $reader,
 		SessionInterface $session,
 		LoggerInterface $logger)
 	{

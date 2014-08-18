@@ -728,8 +728,15 @@ function setDocumentScrollTop(ypos)
 
     <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'AcmeBlogBundle:Post:index.html.twig'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'posts'</span> <span class="o">=&gt;</span><span class="nv">$posts</span><span class="p">,</span> 
-        <span class="s1">'filter'</span> <span class="o">=&gt;</span> <span class="nv">$manager</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+        <span class="s1">'filter'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
     <span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">function</span> <span class="nf">getFilter</span><span class="p">(</span><span class="nx">PostFilter</span> <span class="nv">$filter</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'acme_blog.filter.manager.blog'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">generateForm</span><span class="p">(</span><span class="nv">$filter</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="s1">'POST'</span><span class="p">,</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">'blog'</span><span class="p">),</span>
+        <span class="s1">'Filter'</span><span class="p">);</span>
 <span class="p">}</span>
 </pre>
 </div> 
@@ -742,12 +749,12 @@ function setDocumentScrollTop(ypos)
         <span class="l-Scalar-Plain">handler_factory.class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Zebba\Bundle\FilterBundle\Factory\FilterHandlerFactory</span>
         <span class="l-Scalar-Plain">manager_factory.class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory</span>
 
-        <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
-            <span class="l-Scalar-Plain">logger</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">zebba_filter.null_logger</span>
-            <span class="l-Scalar-Plain">form_factory</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">form.factory</span>
-            <span class="l-Scalar-Plain">object_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">doctrine.orm.entity_manager</span>
-            <span class="l-Scalar-Plain">annotation_reader</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">annotation_reader</span>
-            <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">session</span>
+<span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>  
+    <span class="l-Scalar-Plain">logger.null_logger</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">alias</span><span class="p-Indicator">:</span> <span class="nv">logger</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">zebba_filter.service.form_factory</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">alias</span><span class="p-Indicator">:</span> <span class="nv">form.factory</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">zebba_filter.service.object_manager</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">alias</span><span class="p-Indicator">:</span> <span class="nv">doctrine.orm.entity_manager</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">zebba_filter.service.annotation_reader</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">alias</span><span class="p-Indicator">:</span> <span class="nv">annotation_reader</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">zebba_filter.service.session</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">alias</span><span class="p-Indicator">:</span> <span class="nv">session</span> <span class="p-Indicator">}</span>
 </pre>
 </div>
 </body>

@@ -304,8 +304,15 @@ public function indexAction(Request $request)
         
     return $this->render('AcmeBlogBundle:Post:index.html.twig', array(
         'posts' =>$posts, 
-        'filter' => $manager->getFilter($filter)->createView(),
+        'filter' => $this->getFilter($filter)->createView(),
     ));
+}
+
+private function getFilter(PostFilter $filter)
+{
+    return $this->get('acme_blog.filter.manager.blog')->generateForm($filter, array(), 'POST',
+        $this->generateUrl('blog'),
+        'Filter');
 }
 ```
 
@@ -319,11 +326,11 @@ parameters:
     zebba_filter:
         handler_factory.class: Zebba\Bundle\FilterBundle\Factory\FilterHandlerFactory
         manager_factory.class: Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory
-            
-        service:
-            logger: zebba_filter.null_logger
-            form_factory: form.factory
-            object_manager: doctrine.orm.entity_manager
-            annotation_reader: annotation_reader
-            session: session
+
+services:  
+    logger.null_logger: { alias: logger }
+    zebba_filter.service.form_factory: { alias: form.factory }
+    zebba_filter.service.object_manager: { alias: doctrine.orm.entity_manager }
+    zebba_filter.service.annotation_reader: { alias: annotation_reader }
+    zebba_filter.service.session: { alias: session }
 ```

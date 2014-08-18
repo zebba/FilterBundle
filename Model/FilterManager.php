@@ -2,7 +2,7 @@
 
 namespace Zebba\Bundle\FilterBundle\Model;
 
-use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Annotations\AnnotationException;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -21,7 +21,7 @@ class FilterManager
 	private $handler;
 	/** @var ObjectManager */
 	private $om;
-	/** @var AnnotationReader */
+	/** @var Reader */
 	private $reader;
 	/** @var SessionInterface */
 	private $session;
@@ -32,14 +32,14 @@ class FilterManager
 	 * @param string $filter_id
 	 * @param FilterHandlerInterface $handler
 	 * @param ObjectManager $om
-	 * @param AnnotationReader $reader
+	 * @param Reader $reader
 	 * @param SessionInterface $session
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct($filter_id,
 		FilterHandlerInterface $handler,
 		ObjectManager $om,
-		AnnotationReader $reader,
+		Reader $reader,
 		SessionInterface $session,
 		LoggerInterface $logger)
 	{
@@ -118,6 +118,7 @@ class FilterManager
 
 			if (is_array($identifiers) && 0 < count($identifiers)) {
 				$entities = $this->fromRepository($annotation, $key, $identifiers);
+				$entities = new ArrayCollection($entities);
 
 				$setter = sprintf('set%s', str_replace(' ', '', ucwords(str_replace('_', ' ', strtolower($key)))));
 

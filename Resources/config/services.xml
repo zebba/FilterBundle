@@ -7,29 +7,32 @@
     <parameters>
         <parameter key="zebba_filter.handler_factory.class">Zebba\Bundle\FilterBundle\Factory\FilterHandlerFactory</parameter>
         <parameter key="zebba_filter.manager_factory.class">Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory</parameter>
-        <parameter key="zebba_filter.service.logger">zebba.filter.null_logger</parameter>
-        <parameter key="zebba_filter.service.form_factory">form.factory</parameter>
-        <parameter key="zebba_filter.service.object_manager">doctrine.orm.entity_manager</parameter>
-        <parameter key="zebba_filter.service.annotation_reader">annotation_reader</parameter>
-        <parameter key="zebba_filter.service.session">session</parameter>
     </parameters>
     
     <services>
-        <service id="zebba_filter.null_logger" public="false"
+        <service id="zebba_filter.service.logger" alias="logger.null_logger" />
+   
+        <service id="logger.null_logger" public="false"
             class="Psr\Log\NullLogger" />
+   
+        <service id="zebba_filter.service.form_factory" alias="form.factory" />
+        <service id="zebba_filter.service.object_manager" alias="doctrine.orm.entity_manager" />
+        <service id="zebba_filter.service.annotation_reader" alias="annotation_reader" />
+        <service id="zebba_filter.service.session" alias="session" />
+   
     
         <service id="zebba_filter.handler_factory"
             class="%zebba_filter.handler_factory.class%">
-            <argument type="service" id="%zebba_filter.service.form_factory%" />
-            <argument type="service" id="%zebba_filter.service.logger%" />
+            <argument type="service" id="zebba_filter.service.form_factory">%%</argument>
+            <argument type="service" id="zebba_filter.service.logger">%%</argument>
         </service>
         
         <service id="zebba_filter.manager_factory"
             class="%zebba_filter.manager_factory.class%">
-            <argument type="service" id="%zebba_filter.service.object_manager%" />
-            <argument type="service" id="%zebba_filter.service.annotation_reader" />
-            <argument type="service" id="%zebba_filter.service.session%" />
-            <argument type="service" id="%zebba_filter.service.logger%" />
+            <argument type="service" id="zebba_filter.service.object_manager" />
+            <argument type="service" id="zebba_filter.service.annotation_reader" />
+            <argument type="service" id="zebba_filter.service.session" />
+            <argument type="service" id="zebba_filter.service.logger" />
         </service>
     </services>
 </container>
