@@ -259,7 +259,7 @@ We are almost there! Add the definiton for the FilterManager:
 <services>
     <service id="acme_blog.filter.manager.post"
         class="Zebba\Bundle\FilterBundle\Model\FilterManager"
-        factory-service="zebba_filter.zebba_filter.manager_factory"
+        factory-service="zebba_filter.manager_factory"
         factory-method="get">
         <argument>acme_blog.filter.post</argument>
         <argument type="service" id="acme_blog.filter.handler.post" />

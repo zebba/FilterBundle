@@ -686,7 +686,7 @@ function setDocumentScrollTop(ypos)
 <span class="nt">&lt;services&gt;</span>
     <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme_blog.filter.manager.post&quot;</span>
         <span class="na">class=</span><span class="s">&quot;Zebba\Bundle\FilterBundle\Model\FilterManager&quot;</span>
-        <span class="na">factory-service=</span><span class="s">&quot;zebba_filter.zebba_filter.manager_factory&quot;</span>
+        <span class="na">factory-service=</span><span class="s">&quot;zebba_filter.manager_factory&quot;</span>
         <span class="na">factory-method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;argument&gt;</span>acme_blog.filter.post<span class="nt">&lt;/argument&gt;</span>
         <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;acme_blog.filter.handler.post&quot;</span> <span class="nt">/&gt;</span>
