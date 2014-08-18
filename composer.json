@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.1",
-        "zebba/form" : "~2.5"
+        "zebba/form" : "~1.0.0"
     },
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "dev-master"
