@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.1",
-        "zebba/form" : "dev-master"
+        "zebba/form" : "~2.5"
     },
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "dev-master"
@@ -25,7 +25,7 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "master"
+            "dev-master": "2.5-dev"
         }
     }
 }
