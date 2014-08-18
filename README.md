@@ -15,7 +15,7 @@ Modify your composer.json to add the ZebbaFilterBundle:
     "repositories" : [
         {
             "type" : "vcs",
-           "url" : "https://github.com/zebba/FilterBundle.git"
+            "url" : "https://github.com/zebba/FilterBundle.git"
         }        
     ]
 }    
