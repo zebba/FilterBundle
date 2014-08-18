@@ -20,16 +20,16 @@
     
         <service id="zebba_filter.handler_factory"
             class="%zebba_filter.handler_factory.class%">
-            <argument>%zebba_filter.service.form_factory%</argument>
-            <argument>%zebba_filter.service.logger%</argument>
+            <argument type="service" id="%zebba_filter.service.form_factory%" />
+            <argument type="service" id="%zebba_filter.service.logger%" />
         </service>
         
         <service id="zebba_filter.manager_factory"
             class="%zebba_filter.manager_factory.class%">
-            <argument>%zebba_filter.service.object_manager%</argument>
-            <argument>%zebba_filter.service.annotation_reader</argument>
-            <argument>%zebba_filter.service.session%</argument>
-            <argument>%zebba_filter.service.logger%</argument>
+            <argument type="service" id="%zebba_filter.service.object_manager%" />
+            <argument type="service" id="%zebba_filter.service.annotation_reader" />
+            <argument type="service" id="%zebba_filter.service.session%" />
+            <argument type="service" id="%zebba_filter.service.logger%" />
         </service>
     </services>
 </container>
