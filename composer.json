@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "dev-master"
-    }
+    },
     "autoload": {
         "psr-0": { "Zebba\\Bundle\\FilterBundle\\": "" }
     },
