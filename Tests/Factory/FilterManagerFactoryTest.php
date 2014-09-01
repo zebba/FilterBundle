@@ -15,9 +15,8 @@ final class FilterManagerFactoryTest extends \PHPUnit_Framework_testCase
         $om = $this->getObjectManager();
         $reader = $this->getAnnotationReader();
         $session = $this->getSession();
-        $logger = $this->getLogger();
 
-        $this->factory = new FilterManagerFactory($om, $reader, $session, $logger);
+        $this->factory = new FilterManagerFactory($om, $reader, $session);
     }
 
     public function testGet()
@@ -40,11 +39,6 @@ final class FilterManagerFactoryTest extends \PHPUnit_Framework_testCase
     private function getSession()
     {
     	return $this->getMock('\Symfony\Component\HttpFoundation\Session\SessionInterface');
-    }
-
-    private function getLogger()
-    {
-        return $this->getMock('\Psr\Log\LoggerInterface');
     }
 
     private function getFilterHandler()

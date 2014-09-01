@@ -13,9 +13,8 @@ final class FilterHandlerFactoryTest extends \PHPUnit_Framework_testCase
     public function setUp()
     {
         $factory = $this->getFactory();
-        $logger = $this->getLogger();
 
-        $this->factory = new FilterHandlerFactory($factory, $logger);
+        $this->factory = new FilterHandlerFactory($factory);
     }
 
     public function testGet()
@@ -28,11 +27,6 @@ final class FilterHandlerFactoryTest extends \PHPUnit_Framework_testCase
     private function getFactory()
     {
         return $this->getMock('\Symfony\Component\Form\FormFactoryInterface');
-    }
-
-    private function getLogger()
-    {
-        return $this->getMock('\Psr\Log\LoggerInterface');
     }
 
     private function getType()
