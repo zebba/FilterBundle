@@ -10,21 +10,15 @@
     </parameters>
     
     <services>
-        <service id="zebba_filter.service.logger" alias="logger.null_logger" />
-   
-        <service id="logger.null_logger" public="false"
-            class="Psr\Log\NullLogger" />
-   
-        <service id="zebba_filter.service.form_factory" alias="form.factory" />
-        <service id="zebba_filter.service.object_manager" alias="doctrine.orm.entity_manager" />
-        <service id="zebba_filter.service.annotation_reader" alias="annotation_reader" />
-        <service id="zebba_filter.service.session" alias="session" />
+        <service id="zebba_filter.service.form_factory" alias="form.factory" public="false" />
+        <service id="zebba_filter.service.object_manager" alias="doctrine.orm.entity_manager" public="false" />
+        <service id="zebba_filter.service.annotation_reader" alias="annotation_reader" public="false" />
+        <service id="zebba_filter.service.session" alias="session" public="false" />
    
     
         <service id="zebba_filter.handler_factory"
             class="%zebba_filter.handler_factory.class%">
-            <argument type="service" id="zebba_filter.service.form_factory">%%</argument>
-            <argument type="service" id="zebba_filter.service.logger">%%</argument>
+            <argument type="service" id="zebba_filter.service.form_factory" />
         </service>
         
         <service id="zebba_filter.manager_factory"
@@ -32,7 +26,6 @@
             <argument type="service" id="zebba_filter.service.object_manager" />
             <argument type="service" id="zebba_filter.service.annotation_reader" />
             <argument type="service" id="zebba_filter.service.session" />
-            <argument type="service" id="zebba_filter.service.logger" />
         </service>
     </services>
 </container>

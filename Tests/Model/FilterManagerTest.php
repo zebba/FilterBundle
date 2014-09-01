@@ -24,9 +24,7 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$session = $this->getSession();
 		$session->expects($this->once())->method('get')->will($this->returnValue(array()));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 		$request = $this->getRequest();
@@ -45,23 +43,21 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$metadata->expects($this->once())->method('getIdentifier')->will($this->returnValue(array('foo')));
 
 		$repository = $this->getObjectRepository();
-		$repository->expects($this->once())->method('findBy')->will($this->returnValue(new ArrayCollection));
+		$repository->expects($this->once())->method('findBy')->will($this->returnValue(array()));
 
 		$om = $this->getObjectManager();
 		$om->expects($this->once())->method('getClassMetadata')->will($this->returnValue($metadata));
-		$om->expects($this->once())->method('getRepository')->will($this->returnValue($repository));
+		$om->expects($this->exactly(2))->method('getRepository')->will($this->returnValue($repository));
 
 		$annotation = new Filter(array('targetEntity' => '\Acme'));
 
 		$reader = $this->getAnnotationReader();
-		$reader->expects($this->once())->method('getPropertyAnnotation')->will($this->returnValue($annotation));
+		$reader->expects($this->exactly(2))->method('getPropertyAnnotation')->will($this->returnValue($annotation));
 
 		$session = $this->getSession();
-		$session->expects($this->once())->method('get')->will($this->returnValue(array('foos' => array(1, 2, 3))));
+		$session->expects($this->once())->method('get')->will($this->returnValue(array('foos' => array(1, 2, 3), 'bar' => 1)));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 		$request = $this->getRequest();
@@ -78,15 +74,7 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 
 		$handler = $this->getFilterHandler();
 
-		$metadata = $this->getMetadata();
-		$metadata->expects($this->once())->method('getIdentifier')->will($this->returnValue(array('foo')));
-
-		$repository = $this->getObjectRepository();
-		$repository->expects($this->once())->method('findBy')->will($this->returnValue(new ArrayCollection));
-
 		$om = $this->getObjectManager();
-		$om->expects($this->once())->method('getClassMetadata')->will($this->returnValue($metadata));
-		$om->expects($this->once())->method('getRepository')->will($this->returnValue($repository));
 
 		$annotation = new Filter(array('targetEntity' => '\Acme'));
 
@@ -96,11 +84,9 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$session = $this->getSession();
 		$session->expects($this->once())->method('get')->will($this->returnValue(array('bars' => array(1, 2, 3))));
 
-		$logger = $this->getLogger();
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
-
-		$filter = new AcmeFilter;
+		$filter = new AcmeFilterBroken;
 		$request = $this->getRequest();
 
 		$manager->process($filter, array(), $request);
@@ -127,11 +113,9 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$reader->expects($this->once())->method('getPropertyAnnotation')->will($this->returnValue($annotation));
 
 		$session = $this->getSession();
-		$session->expects($this->once())->method('get')->will($this->returnValue(array('bars' => array(1, 2, 3))));
+		$session->expects($this->once())->method('get')->will($this->returnValue(array('foos' => array(1, 2, 3), 'bar' => 1)));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 		$request = $this->getRequest();
@@ -160,11 +144,9 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$reader->expects($this->once())->method('getPropertyAnnotation')->will($this->returnValue($annotation));
 
 		$session = $this->getSession();
-		$session->expects($this->once())->method('get')->will($this->returnValue(array('bars' => array(1, 2, 3))));
+		$session->expects($this->once())->method('get')->will($this->returnValue(array('foos' => array(1, 2, 3), 'bar' => 1)));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 		$request = $this->getRequest();
@@ -185,9 +167,7 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$session = $this->getSession();
 		$session->expects($this->once())->method('get')->will($this->returnValue(array()));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 		$request = $this->getRequest();
@@ -210,9 +190,7 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		$session = $this->getSession();
 		$session->expects($this->once())->method('get')->will($this->returnValue(array()));
 
-		$logger = $this->getLogger();
-
-		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session, $logger);
+		$manager = new FilterManager($filter_id, $handler, $om, $reader, $session);
 
 		$filter = new AcmeFilter;
 
@@ -251,11 +229,6 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 		return $this->getMock('\Symfony\Component\HttpFoundation\Session\SessionInterface');
 	}
 
-	private function getLogger()
-	{
-		return $this->getMock('\Psr\Log\LoggerInterface');
-	}
-
 	private function getRequest()
 	{
 		return $this->getMock('\Symfony\Component\HttpFoundation\Request');
@@ -270,20 +243,51 @@ class FilterManagerTest extends \PHPUnit_Framework_TestCase
 class AcmeFilter implements FilterInterface
 {
 	private $foos;
-	private $bars;
+	private $bar;
 
-	public function getFilter() {
-
-
+	public function getFilter()
+	{
+		return array(
+			'foos' => array(),
+			'bar' => 1,
+		);
 	}
 
 	public function isEmpty()
 	{
+	}
 
+	public function reset()
+	{
 	}
 
 	public function setFoos(Collection $foos)
 	{
+	}
 
+	public function setBar($bar)
+	{
+	}
+}
+
+class AcmeFilterBroken implements FilterInterface
+{
+	private $foos;
+	private $bars;
+
+	public function getFilter()
+	{
+		return array(
+			'foos' => array(),
+			'bars' => array(),
+		);
+	}
+
+	public function isEmpty()
+	{
+	}
+
+	public function reset()
+	{
 	}
 }
