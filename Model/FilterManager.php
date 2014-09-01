@@ -7,7 +7,6 @@ use Doctrine\Common\Annotations\AnnotationException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Zebba\Bundle\FilterBundle\Annotation;
@@ -35,14 +34,12 @@ class FilterManager
 	 * @param ObjectManager $om
 	 * @param Reader $reader
 	 * @param SessionInterface $session
-	 * @param LoggerInterface $logger
 	 */
 	public function __construct($filter_id,
 		FilterHandlerInterface $handler,
 		ObjectManager $om,
 		Reader $reader,
-		SessionInterface $session,
-		LoggerInterface $logger)
+		SessionInterface $session)
 	{
 		$this->filter_id = $filter_id;
 		$this->handler = $handler;
@@ -117,17 +114,21 @@ class FilterManager
 
 			if (! $annotation instanceof Annotation\Filter) { continue; }
 
+			$setter = sprintf('set%s', str_replace(' ', '', ucwords(str_replace('_', ' ', strtolower($key)))));
+
+			if (! method_exists($filter, $setter)) {
+				throw new \DomainException(sprintf('Expected method \'%s\' to exist on %s', $setter, get_class($filter)));
+			}
+
 			if (is_array($identifiers) && 0 < count($identifiers)) {
 				$entities = $this->fromRepository($annotation, $key, $identifiers);
 				$entities = new ArrayCollection($entities);
 
-				$setter = sprintf('set%s', str_replace(' ', '', ucwords(str_replace('_', ' ', strtolower($key)))));
-
-				if (! method_exists($filter, $setter)) {
-					throw new \DomainException(sprintf('Expected method \'%s\' to exist on %s', $setter, get_class($filter)));
-				}
-
 				$filter->{$setter}($entities);
+			} elseif (! is_array($identifiers)) {
+				$entity = $this->fromRepository($annotation, $key, $identifiers);
+
+				$filter->{$setter}($entity);
 			}
 		}
 
@@ -138,17 +139,21 @@ class FilterManager
 	 *
 	 * @param Annotation\Filter $annotation
 	 * @param string $key
-	 * @param array $identifiers
+	 * @param array|integer $identifiers
 	 */
-	private function fromRepository(Annotation\Filter $annotation, $key, array $identifiers)
+	private function fromRepository(Annotation\Filter $annotation, $key, $identifiers)
 	{
 		$target = $annotation->getTargetEntity();
 
-		$pk = $this->retrievePkColumnName($target);
+		if (is_array($identifiers)) {
+			$pk = $this->retrievePkColumnName($target);
 
-		return $this->om->getRepository($target)->findBy(array(
-			$pk => $identifiers
-		));
+			return $this->om->getRepository($target)->findBy(array(
+				$pk => $identifiers
+			));
+		} else {
+			return $this->om->getRepository($target)->find($identifiers);
+		}
 	}
 
 	/**

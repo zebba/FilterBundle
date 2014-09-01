@@ -4,7 +4,6 @@ namespace Zebba\Bundle\FilterBundle\Factory;
 
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Persistence\ObjectManager;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Zebba\Bundle\FilterBundle\Model\FilterManager;
 use Zebba\Component\Form\Filter\FilterHandlerInterface;
@@ -17,8 +16,6 @@ class FilterManagerFactory
 	private $reader;
 	/** @var SessionInterface */
 	private $session;
-	/** @var LoggerInterface */
-	private $logger;
 
 	/**
 	 * Constructor
@@ -26,18 +23,14 @@ class FilterManagerFactory
 	 * @param ObjectManager $om
 	 * @param Reader $reader
 	 * @param SessionInterface $session
-	 * @param LoggerInterface $logger
 	 */
 	public function __construct(ObjectManager $om,
 		Reader $reader,
-		SessionInterface $session,
-		LoggerInterface $logger)
+		SessionInterface $session)
 	{
 		$this->om = $om;
 		$this->reader = $reader;
 		$this->session = $session;
-
-		$this->logger = $logger;
 	}
 
 	/**
@@ -52,7 +45,7 @@ class FilterManagerFactory
 			$handler,
 			$this->om,
 			$this->reader,
-			$this->session,
-			$this->logger);
+			$this->session
+		);
 	}
 }

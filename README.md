@@ -129,6 +129,12 @@ class PostFilter implements FilterInterface
         return (! $this->categories->isEmpty() && ! isset($this->author);
     }
     
+    public function reset()
+    {
+        $this->author = null;
+        $this->categories = new ArrayCollection;
+    }
+    
     public function getAuthor() { /* ... */ }
     public function setAuthor(UserInterface $author) { /* ... */ }
     public function getCategories() { /* ... */ }
@@ -142,7 +148,7 @@ The function getFilter() will return an array with all the primary key values yo
 checks if there is actually any data set in the filter.
 
 In order to make some magic happen, we also need to help the ZebbaFilterBundle and tell it what kind of
-entities the Collection holds by adding the Filter annotation:
+entities the property holds by adding the Filter annotation:
 
 
 ``` php
@@ -157,6 +163,13 @@ use Zebba\Bundle\FilterBundle\Annotation\Filter;
 class PostFilter implements FilterInterface
 {
     // ...
+    
+    /**
+     * @var UserInterface
+     *
+     * @Filter(targetEntity="Acme\BlogBundle\Entity\Author") 
+     */
+    private $categories;
     
     /**
      * @var Collection
@@ -244,7 +257,7 @@ Next on the list is creating the FilterHandler:
         factory-service="zebba_filter.handler_factory"
         factory-method="get">
         <argument>acme_blog.filter.post</argument>
-        <argument type="service" id="siepmann.form.type.inquiry" />
+        <argument type="service" id="acme_blog.post_filter.form_type" />
     </service>
 </services>
 ```
@@ -328,7 +341,6 @@ parameters:
         manager_factory.class: Zebba\Bundle\FilterBundle\Factory\FilterManagerFactory
 
 services:  
-    logger.null_logger: { alias: logger }
     zebba_filter.service.form_factory: { alias: form.factory }
     zebba_filter.service.object_manager: { alias: doctrine.orm.entity_manager }
     zebba_filter.service.annotation_reader: { alias: annotation_reader }
