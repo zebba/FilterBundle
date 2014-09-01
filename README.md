@@ -169,7 +169,7 @@ class PostFilter implements FilterInterface
      *
      * @Filter(targetEntity="Acme\BlogBundle\Entity\Author") 
      */
-    private $categories;
+    private $author;
     
     /**
      * @var Collection
