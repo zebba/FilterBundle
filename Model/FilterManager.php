@@ -88,19 +88,10 @@ class FilterManager
 	/**
 	 *
 	 * @param FilterInterface $filter
-	 */
-	private function toSession(FilterInterface $filter)
-	{
-		if (! $filter->isEmpty()) { $this->session->set($this->filter_id, $filter->getFilter()); }
-	}
-
-	/**
-	 *
-	 * @param FilterInterface $filter
 	 * @throws \DomainException
 	 * @return FilterInterface
 	 */
-	private function fromSession(FilterInterface $filter)
+	public function fromSession(FilterInterface $filter)
 	{
 		$session = $this->session->get($this->filter_id, array());
 
@@ -134,6 +125,17 @@ class FilterManager
 
 		return $filter;
 	}
+
+	/**
+	 *
+	 * @param FilterInterface $filter
+	 */
+	private function toSession(FilterInterface $filter)
+	{
+		if (! $filter->isEmpty()) { $this->session->set($this->filter_id, $filter->getFilter()); }
+	}
+
+
 
 	/**
 	 *
