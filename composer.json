@@ -1,12 +1,10 @@
 {
     "name": "zebba/filter-bundle",
-    "type": "zebba-bundle",
+    "type": "bundle",
     "description": "Zebba FilterBundle",
-    "keywords": [],
     "homepage": "https://github.com/zebba/FilterBundle",
     "license": "MIT",
-    "authors": [
-        {
+    "authors": [{
             "name": "Sebastian Kuhlmann",
             "email": "zebba@hotmail.de"
         }
@@ -23,10 +21,5 @@
         "psr-0": { "Zebba\\Bundle\\FilterBundle\\": "" }
     },
     "target-dir": "Zebba/Bundle/FilterBundle",
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.5-dev"
-        }
-    }
+    "minimum-stability": "dev"
 }
