@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3",
-        "zebba/form" : "~1.0",
+        "zebba/form" : "dev-master",
         "doctrine/common": ">=2.1"
     },
     "require-dev": {
