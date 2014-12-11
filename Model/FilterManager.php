@@ -109,7 +109,7 @@ class FilterManager
 				throw new \DomainException(sprintf('Expected method \'%s\' to exist on %s', $setter, get_class($filter)));
 			}
 
-			if (! $annotation instanceof Annotation\Filter) {
+			if ($annotation instanceof Annotation\Filter) {
 				if (is_array($identifiers) && 0 < count($identifiers)) {
 					$entities = $this->fromRepository($annotation, $key, $identifiers);
 					$entities = new ArrayCollection($entities);
