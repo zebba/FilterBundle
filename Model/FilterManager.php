@@ -103,23 +103,25 @@ class FilterManager
 			$property = $reflectionClass->getProperty($key);
 			$annotation = $this->reader->getPropertyAnnotation($property, '\Zebba\Bundle\FilterBundle\Annotation\Filter');
 
-			if (! $annotation instanceof Annotation\Filter) { continue; }
-
 			$setter = sprintf('set%s', str_replace(' ', '', ucwords(str_replace('_', ' ', strtolower($key)))));
 
 			if (! method_exists($filter, $setter)) {
 				throw new \DomainException(sprintf('Expected method \'%s\' to exist on %s', $setter, get_class($filter)));
 			}
 
-			if (is_array($identifiers) && 0 < count($identifiers)) {
-				$entities = $this->fromRepository($annotation, $key, $identifiers);
-				$entities = new ArrayCollection($entities);
+			if (! $annotation instanceof Annotation\Filter) {
+				if (is_array($identifiers) && 0 < count($identifiers)) {
+					$entities = $this->fromRepository($annotation, $key, $identifiers);
+					$entities = new ArrayCollection($entities);
 
-				$filter->{$setter}($entities);
-			} elseif (! is_array($identifiers)) {
-				$entity = $this->fromRepository($annotation, $key, $identifiers);
+					$filter->{$setter}($entities);
+				} elseif (! is_array($identifiers)) {
+					$entity = $this->fromRepository($annotation, $key, $identifiers);
 
-				$filter->{$setter}($entity);
+					$filter->{$setter}($entity);
+				}
+			} else {
+				$filter->{$setter}($identifiers);
 			}
 		}
 
